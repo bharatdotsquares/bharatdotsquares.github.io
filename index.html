@@ -5,8 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="rtQxjz_4o2Bz9wJTD3vdOoQDAj40CYcJ3oAMD4vghoI" />
     <title>Document</title>
+
+    <style>
+        html, body {
+          height: 100%;
+          margin: 0;
+        }
+        #map {
+          height: 100%;
+          width: 100%;
+        }
+      </style>
 </head>
 <body>
     <h1>Hello World</h1>
+    <div id="map"></div>
+
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2YsjJwGS5dvzspmXEqXe0IzIwDkFeTjw&callback=initMap"
+    async
+    defer
+  ></script>
+    <script>
+        function initMap() {
+          const location = { lat: 28.6139, lng: 77.2090 }; // Delhi
+    
+          const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 12,
+            center: location,
+          });
+    
+          new google.maps.Marker({
+            position: location,
+            map: map,
+            title: "Hello Google Maps!",
+          });
+        }
+      </script>
 </body>
 </html>
+ 
